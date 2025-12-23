@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+@import 'tailwindcss';
+
+@theme {
+  --font-lexend: 'Lexend', sans-serif;
+
+  --color-primary: #1d4ed8;
+  --color-primary-hover: #1e40af;
+  --color-secondary: #f3f4f6;
+  --color-background: #f8faff;
+  --color-card: #fff;
+  --color-text-main: #111827;
+  --color-text-muted: #6b7280;
+}
+
+@layer base {
+  body {
+    @apply font-lexend text-text-main;
+  }
+
+  #root {
+    @apply grid min-h-screen grid-rows-[auto_1fr_auto];
+  }
+}

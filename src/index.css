@@ -11,14 +11,28 @@
   --color-card: #fff;
   --color-text-main: #111827;
   --color-text-muted: #6b7280;
+
+  --animate-infinite-scroll: infinite-scroll 40s linear infinite;
+  @keyframes infinite-scroll {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-50% - 16px));
+    }
+  }
 }
 
 @layer base {
   body {
-    @apply font-lexend text-text-main;
+    @apply font-lexend text-text-main selection:bg-primary overflow-x-hidden selection:text-white;
   }
 
   #root {
     @apply grid min-h-screen grid-rows-[auto_1fr_auto];
   }
+}
+
+@utility section {
+  @apply container mx-auto p-4 lg:px-8;
 }

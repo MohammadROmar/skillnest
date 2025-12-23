@@ -5,13 +5,13 @@ import NavigationList from './NavigationList';
 
 export default function Footer() {
   return (
-    <footer className="border-t border-gray-200">
+    <footer className="bg-background border-t border-gray-200">
       <div className="container mx-auto p-4 lg:px-8">
         <nav className="flex items-end justify-between gap-4">
           <div>
             <Link
               to="/"
-              className="flex items-center gap-2 text-lg font-semibold text-black"
+              className="flex w-fit items-center gap-2 text-lg font-semibold text-black"
             >
               <LogoIcon className="size-7 shrink-0" />
               <span>SkillNest</span>

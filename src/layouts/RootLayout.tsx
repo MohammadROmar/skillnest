@@ -7,7 +7,7 @@ export default function RootLayout() {
   return (
     <>
       <Header />
-      <main className="container mx-auto p-4 lg:px-8">
+      <main className="">
         <Outlet />
       </main>
       <Footer />

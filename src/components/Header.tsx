@@ -6,7 +6,7 @@ import NavigationList from './NavigationList';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 border-b border-gray-200 bg-white backdrop-blur-xs supports-backdrop-filter:bg-white/25">
+    <header className="bg-background sticky top-0 z-50 border-b border-gray-200 backdrop-blur-xs supports-backdrop-filter:bg-white/25">
       <nav className="container mx-auto flex items-center justify-between px-4 py-2 lg:px-8">
         <Link
           to="/"

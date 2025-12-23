@@ -102,12 +102,12 @@ function Hero() {
 
 function CompaniesTrust() {
   return (
-    <section className="bg-background text-text-muted py-8">
+    <section className="bg-background text-text-muted w-screen py-8">
       <div className="section space-y-6">
         <h2 className="text-center text-xs font-medium tracking-tight uppercase">
           Trusted by companies worldwide
         </h2>
-        <div className="flex overflow-x-hidden">
+        <div className="before:from-background after:to-background relative flex overflow-x-hidden before:absolute before:inset-y-0 before:left-0 before:z-10 before:w-8 before:bg-linear-to-r before:to-transparent after:absolute after:inset-y-0 after:right-0 after:z-10 after:w-8 after:bg-linear-to-r after:from-transparent">
           <ul className="animate-infinite-scroll flex items-center gap-8">
             {[...companies, ...companies].map(({ label, icon: Icon }, i) => (
               <li key={`${label}-${i}`} className="flex items-center gap-2">
@@ -136,7 +136,7 @@ function Categories() {
         you.
       </p>
 
-      <ul className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-4">
+      <ul className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
         {categories.map((category) => (
           <li
             key={category.label}
@@ -163,7 +163,7 @@ function StartLearning() {
     <section className="bg-secondary py-8">
       <div className="section">
         <div className="bg-primary relative flex overflow-hidden rounded-2xl before:absolute before:inset-0 before:bg-[url(carbon-fibre.png)] before:opacity-10">
-          <div className="relative flex w-full items-center justify-between gap-4 p-8 before:absolute before:-bottom-[10%] before:-left-3 before:size-20 before:rounded-full before:bg-white/15 after:absolute after:-top-[10%] after:-right-3 after:size-20 after:rounded-full after:bg-white/15">
+          <div className="relative flex w-full flex-wrap items-center justify-between gap-4 p-8 before:absolute before:-bottom-[10%] before:-left-3 before:size-20 before:rounded-full before:bg-white/15 after:absolute after:-top-[10%] after:-right-3 after:size-20 after:rounded-full after:bg-white/15">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-white">
                 Start learning from the best

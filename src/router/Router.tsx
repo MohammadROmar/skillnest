@@ -22,12 +22,12 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     children: [
       { index: true, element: <WithSuspense Component={HomePage} /> },
-      { path: '/log-in', element: <WithSuspense Component={LogInPage} /> },
       { path: '/courses', element: <WithSuspense Component={CoursesPage} /> },
       { path: '/cart', element: <WithSuspense Component={CartPage} /> },
       { path: '*', element: <WithSuspense Component={NotFoundPage} /> },
     ],
   },
+  { path: '/log-in', element: <WithSuspense Component={LogInPage} /> },
 ]);
 
 export default function Router() {

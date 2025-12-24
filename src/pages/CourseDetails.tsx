@@ -9,7 +9,7 @@ import { courses, type Course } from '../data/courses';
 type CourseProps = { course: Course };
 
 function isValidCourse(id: number | undefined) {
-  return id && (id >= 0 || id < courses.length);
+  return id !== undefined && (id >= 0 || id < courses.length);
 }
 
 export default function CourseDetails() {
@@ -17,6 +17,8 @@ export default function CourseDetails() {
 
   const idAsNumber = id ? +id : undefined;
   const isValid = isValidCourse(idAsNumber);
+
+  console.log(isValid);
 
   if (!isValid) return NotFoundPage();
 

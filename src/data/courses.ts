@@ -38,7 +38,7 @@ export interface Course {
 
 export const courses: Course[] = [
   {
-    id: 1,
+    id: 0,
     image: creativeUiDesignEssentialsImg,
     title: 'Creative UI Design Essentials',
     shortDescription:
@@ -62,7 +62,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 2,
+    id: 1,
     image: advancedVisualBrandingImg,
     title: 'Advanced Visual Branding',
     shortDescription: 'Build strong brand identities through design.',
@@ -85,7 +85,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     image: modernWebDevelopmentBasicsImg,
     title: 'Modern Web Development Basics',
     shortDescription: 'Start your journey into modern web development.',
@@ -108,7 +108,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     image: frontendArchitectureMasteryImg,
     title: 'Frontend Architecture Mastery',
     shortDescription: 'Design scalable frontend projects with confidence.',
@@ -131,7 +131,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 5,
+    id: 4,
     image: digitalMarketingFundamentalsImg,
     title: 'Digital Marketing Fundamentals',
     shortDescription: 'Understand the core principles of online marketing.',
@@ -154,7 +154,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 6,
+    id: 5,
     image: socialMediaStrategyImg,
     title: 'Social Media Strategy',
     shortDescription: 'Grow and manage brands on social platforms.',
@@ -177,7 +177,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 7,
+    id: 6,
     image: businessStrategyBasicsImg,
     title: 'Business Strategy Basics',
     shortDescription: 'Learn how successful businesses make decisions.',
@@ -200,7 +200,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 8,
+    id: 7,
     image: entrepreneurshipImg,
     title: 'Entrepreneurship Essentials',
     shortDescription: 'Turn ideas into sustainable businesses.',
@@ -223,7 +223,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 9,
+    id: 8,
     image: musicProductionBasicsImg,
     title: 'Music Production Basics',
     shortDescription: 'Create professional-quality music tracks.',
@@ -246,7 +246,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 10,
+    id: 9,
     image: advancedAudioMixingImg,
     title: 'Advanced Audio Mixing',
     shortDescription: 'Refine your sound with professional mixing techniques.',
@@ -269,7 +269,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 11,
+    id: 10,
     image: dataAnalysisFoundationsImg,
     title: 'Data Analysis Foundations',
     shortDescription: 'Understand data and make informed decisions.',
@@ -292,7 +292,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 12,
+    id: 11,
     image: appliedDataInsightsImg,
     title: 'Applied Data Insights',
     shortDescription: 'Turn data into actionable insights.',
@@ -315,7 +315,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 13,
+    id: 12,
     image: personalProductivityKasteryImg,
     title: 'Personal Productivity Mastery',
     shortDescription: 'Improve focus, habits, and daily efficiency.',
@@ -338,7 +338,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 14,
+    id: 13,
     image: mindsetGoalSettingImg,
     title: 'Mindset & Goal Setting',
     shortDescription: 'Build a strong mindset for long-term success.',
@@ -361,7 +361,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 15,
+    id: 14,
     image: photographyBasicsImg,
     title: 'Photography Basics',
     shortDescription: 'Learn how to capture stunning photos.',
@@ -384,7 +384,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 16,
+    id: 15,
     image: creativPortraitPhotographyImg,
     title: 'Creative Portrait Photography',
     shortDescription: 'Create expressive and professional portraits.',
@@ -407,7 +407,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 17,
+    id: 16,
     image: creativeThinkingForDesignersImg,
     title: 'Creative Thinking for Designers',
     shortDescription: 'Enhance creativity through structured thinking.',
@@ -430,7 +430,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 18,
+    id: 17,
     image: fullStackProjectOverviewImg,
     title: 'Full-Stack Project Overview',
     shortDescription: 'Understand the complete lifecycle of digital products.',
@@ -453,7 +453,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 19,
+    id: 18,
     image: businessCommunicationImg,
     title: 'Business Communication Skills',
     shortDescription: 'Communicate clearly and professionally in business.',
@@ -476,7 +476,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 20,
+    id: 19,
     image: digitalMarketingFundamentalsImg,
     title: 'Marketing Analytics Overview',
     shortDescription: 'Measure and improve marketing performance.',

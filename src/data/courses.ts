@@ -18,7 +18,25 @@ import personalProductivityKasteryImg from '../assets/images/courses/personal-pr
 import photographyBasicsImg from '../assets/images/courses/photography-basics.jpg';
 import socialMediaStrategyImg from '../assets/images/courses/social-media-strategy.jpg';
 
-export const courses = [
+export interface Course {
+  id: number;
+  image: string;
+  title: string;
+  shortDescription: string;
+  fullDescription: string;
+  lessonsCount: number;
+  level: 'Beginner' | 'Intermediate' | 'Advanced';
+  price: number;
+  category: string;
+  duration: string;
+  days: string[];
+  time: string;
+  instructor: string;
+  language: string;
+  whatYouWillLearn: string[];
+}
+
+export const courses: Course[] = [
   {
     id: 1,
     image: creativeUiDesignEssentialsImg,
@@ -36,6 +54,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'Lina Carter',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand core UI design principles',
+      'Apply color theory and visual balance',
+      'Design clean and modern interfaces',
+      'Create user-friendly layouts',
+    ],
   },
   {
     id: 2,
@@ -53,6 +77,12 @@ export const courses = [
     time: '19:00 - 21:00',
     instructor: 'Michael Stone',
     language: 'English',
+    whatYouWillLearn: [
+      'Build strong visual brand identities',
+      'Design professional logo systems',
+      'Create consistent branding assets',
+      'Apply branding across digital platforms',
+    ],
   },
   {
     id: 3,
@@ -70,6 +100,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'Daniel Roberts',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand modern web structures',
+      'Build responsive layouts',
+      'Apply development best practices',
+      'Create functional web pages',
+    ],
   },
   {
     id: 4,
@@ -87,6 +123,12 @@ export const courses = [
     time: '19:00 - 21:00',
     instructor: 'Emily Nguyen',
     language: 'English',
+    whatYouWillLearn: [
+      'Structure large frontend projects',
+      'Design scalable UI architectures',
+      'Improve code organization',
+      'Maintain long-term project quality',
+    ],
   },
   {
     id: 5,
@@ -104,6 +146,12 @@ export const courses = [
     time: '17:00 - 19:00',
     instructor: 'Sophia Adams',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand digital marketing basics',
+      'Identify target audiences',
+      'Create marketing strategies',
+      'Grow brands online',
+    ],
   },
   {
     id: 6,
@@ -121,6 +169,12 @@ export const courses = [
     time: '18:30 - 20:30',
     instructor: 'Nathan Clark',
     language: 'English',
+    whatYouWillLearn: [
+      'Plan social media content',
+      'Increase audience engagement',
+      'Build platform-specific strategies',
+      'Measure social media performance',
+    ],
   },
   {
     id: 7,
@@ -138,6 +192,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'James Wilson',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand business models',
+      'Develop strategic thinking',
+      'Make informed decisions',
+      'Analyze real business cases',
+    ],
   },
   {
     id: 8,
@@ -155,6 +215,12 @@ export const courses = [
     time: '19:00 - 21:00',
     instructor: 'Olivia Brown',
     language: 'English',
+    whatYouWillLearn: [
+      'Validate business ideas',
+      'Launch new ventures',
+      'Scale sustainable businesses',
+      'Manage entrepreneurial risks',
+    ],
   },
   {
     id: 9,
@@ -172,6 +238,12 @@ export const courses = [
     time: '16:00 - 18:00',
     instructor: 'Lucas Martin',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand music production workflows',
+      'Record high-quality audio',
+      'Apply basic mixing techniques',
+      'Create polished music tracks',
+    ],
   },
   {
     id: 10,
@@ -189,6 +261,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'David Chen',
     language: 'English',
+    whatYouWillLearn: [
+      'Apply professional mixing workflows',
+      'Enhance sound clarity',
+      'Balance complex audio tracks',
+      'Achieve studio-quality mixes',
+    ],
   },
   {
     id: 11,
@@ -206,6 +284,12 @@ export const courses = [
     time: '17:00 - 19:00',
     instructor: 'Anna Lopez',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand basic data concepts',
+      'Analyze datasets effectively',
+      'Extract meaningful insights',
+      'Support decision-making with data',
+    ],
   },
   {
     id: 12,
@@ -223,6 +307,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'Ryan Patel',
     language: 'English',
+    whatYouWillLearn: [
+      'Interpret real-world datasets',
+      'Identify patterns and trends',
+      'Communicate data insights',
+      'Apply data-driven thinking',
+    ],
   },
   {
     id: 13,
@@ -240,6 +330,12 @@ export const courses = [
     time: '16:00 - 18:00',
     instructor: 'Mark Evans',
     language: 'English',
+    whatYouWillLearn: [
+      'Improve focus and concentration',
+      'Build productive daily habits',
+      'Manage time efficiently',
+      'Increase personal effectiveness',
+    ],
   },
   {
     id: 14,
@@ -257,6 +353,12 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'Rachel Moore',
     language: 'English',
+    whatYouWillLearn: [
+      'Set clear and achievable goals',
+      'Develop a growth mindset',
+      'Stay motivated long-term',
+      'Overcome personal challenges',
+    ],
   },
   {
     id: 15,
@@ -274,6 +376,12 @@ export const courses = [
     time: '17:00 - 19:00',
     instructor: 'Emma Wilson',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand camera settings',
+      'Apply composition techniques',
+      'Work with natural lighting',
+      'Capture high-quality photos',
+    ],
   },
   {
     id: 16,
@@ -291,6 +399,12 @@ export const courses = [
     time: '18:30 - 20:30',
     instructor: 'Alex Turner',
     language: 'English',
+    whatYouWillLearn: [
+      'Create professional portraits',
+      'Master portrait lighting setups',
+      'Direct and pose subjects',
+      'Develop a unique photography style',
+    ],
   },
   {
     id: 17,
@@ -308,6 +422,12 @@ export const courses = [
     time: '17:00 - 19:00',
     instructor: 'Isabella Green',
     language: 'English',
+    whatYouWillLearn: [
+      'Generate creative ideas',
+      'Solve design problems creatively',
+      'Think strategically as a designer',
+      'Apply creativity in real projects',
+    ],
   },
   {
     id: 18,
@@ -325,6 +445,12 @@ export const courses = [
     time: '19:00 - 21:00',
     instructor: 'Kevin Brooks',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand full product lifecycles',
+      'Connect frontend and backend concepts',
+      'Work with real-world project flows',
+      'Collaborate across disciplines',
+    ],
   },
   {
     id: 19,
@@ -342,6 +468,12 @@ export const courses = [
     time: '16:00 - 18:00',
     instructor: 'Laura Scott',
     language: 'English',
+    whatYouWillLearn: [
+      'Communicate clearly in business settings',
+      'Deliver effective presentations',
+      'Improve professional interactions',
+      'Build strong communication skills',
+    ],
   },
   {
     id: 20,
@@ -359,5 +491,11 @@ export const courses = [
     time: '18:00 - 20:00',
     instructor: 'Brian Hall',
     language: 'English',
+    whatYouWillLearn: [
+      'Understand marketing metrics',
+      'Analyze campaign performance',
+      'Improve data-driven decisions',
+      'Optimize marketing strategies',
+    ],
   },
 ];

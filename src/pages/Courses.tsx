@@ -1,9 +1,9 @@
 import { Link, useSearchParams } from 'react-router-dom';
+import { Eye, ShoppingCart } from 'lucide-react';
 
 import Pagination from '../components/Pagination';
-import { courses } from '../data/courses';
 import { formatPrice } from '../utils/format-price';
-import { Eye, ShoppingCart } from 'lucide-react';
+import { courses, type Course } from '../data/courses';
 
 const TOTAL_ITEMS = courses.length;
 const PAGE_SIZE = 6;
@@ -53,13 +53,13 @@ function CoursesList() {
   );
 }
 
-const LEVEL_TEXT_COLOR: { [key: string]: string } = {
+const LEVEL_TEXT_COLOR = {
   Beginner: 'text-blue-500 border-blue-300',
   Intermediate: 'text-orange-500 border-orange-300',
   Advanced: 'text-green-500 border-green-300',
 };
 
-function CourseCard({ course }: { course: (typeof courses)[number] }) {
+function CourseCard({ course }: { course: Course }) {
   return (
     <li className="bg-background relative grid grid-rows-[auto_1fr] overflow-hidden rounded-2xl border border-gray-200 shadow">
       <p
@@ -78,7 +78,10 @@ function CourseCard({ course }: { course: (typeof courses)[number] }) {
           <p className="text-primary text-xs font-medium uppercase">
             {course.category}
           </p>
-          <h2 className="text-lg font-semibold tracking-tight">
+          <h2
+            id={`course-${course.id}`}
+            className="text-lg font-semibold tracking-tight"
+          >
             {course.title}
           </h2>
           <p className="text-text-muted mt-1 text-xs">

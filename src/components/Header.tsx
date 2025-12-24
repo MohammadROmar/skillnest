@@ -20,10 +20,10 @@ export default function Header() {
 
         <Link
           to="/log-in"
-          className="bg-primary flex items-center gap-2 rounded-2xl px-3 py-1 text-white"
+          className="bg-primary flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white"
         >
           <span>
-            <LogInIcon aria-hidden className="size-5" />
+            <LogInIcon aria-hidden className="size-4" />
           </span>
           <span>Log In</span>
         </Link>

@@ -8,11 +8,11 @@ import studentsImg from '../assets/images/students-2.jpg';
 export default function LogInPage() {
   return (
     <main className="flex min-h-screen gap-6">
-      <section className="relative flex flex-1 flex-col items-center justify-center p-6">
+      <section className="bg-primary/20 relative flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
         <img
           src={studentsImg}
           alt="Student image"
-          className="absolute inset-0 -z-50 size-full object-cover object-center opacity-20 blur-xs lg:hidden"
+          className="absolute inset-0 -z-50 size-full object-cover object-center opacity-30 blur-xs lg:hidden"
         />
 
         <div className="w-full space-y-6 lg:max-w-sm">
@@ -28,7 +28,7 @@ export default function LogInPage() {
             <h1 className="mt-16 to-black text-4xl font-extrabold tracking-tight">
               Welcome Back
             </h1>
-            <p className="text-text-muted mt-1 text-sm">
+            <p className="lg:text-text-muted mt-1 text-sm text-gray-600">
               Enter your credentails to access your account.
             </p>
           </div>
@@ -53,6 +53,7 @@ function LoginForm() {
           <input
             id="email"
             required
+            autoComplete="email"
             type="email"
             placeholder="Enter your email"
             className="input pl-10"
@@ -85,6 +86,7 @@ function PasswordInput() {
       <input
         id="password"
         required
+        autoComplete="current-password"
         type={type}
         placeholder="Enter your password"
         className="input px-10"
@@ -123,7 +125,7 @@ function SidePanel() {
           is a <span className="text-cyan-300">choise</span>."
         </p>
 
-        <p className="font-light capitalize">- skillnest philosophy</p>
+        <p className="font-light capitalize">- skillNest philosophy</p>
       </div>
     </section>
   );

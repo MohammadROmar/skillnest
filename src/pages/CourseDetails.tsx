@@ -1,7 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { BadgeCheck, Check, ShieldCheck, ShoppingCart } from 'lucide-react';
 
-import { useCart } from '../context/cart/useCart';
+import { useAuth } from '../context/auth/hooks';
+import { useCart } from '../context/cart/hooks';
 import NotFoundPage from './NotFound';
 import { formatPrice } from '../utils/format-price';
 import { getCourseDateInfo, getCourseInfo } from '../utils/getCourseInfo';
@@ -12,9 +13,6 @@ type CourseProps = { course: Course };
 function isValidCourse(id: number | undefined) {
   return id !== undefined && id >= 0 && id < courses.length - 1;
 }
-
-const BUTTON_STYLES =
-  'bg-primary flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-white';
 
 export default function CourseDetails() {
   const { id } = useParams();
@@ -162,6 +160,7 @@ function InfoCard({ course }: CourseProps) {
 }
 
 function AddToCartBtn({ course }: { course: Course }) {
+  const { isLoggedIn } = useAuth();
   const { addToCart, isInCart } = useCart();
 
   function handleAdd() {
@@ -173,16 +172,24 @@ function AddToCartBtn({ course }: { course: Course }) {
     });
   }
 
+  if (!isLoggedIn) {
+    return (
+      <p className="button w-full cursor-default rounded-lg text-center text-sm">
+        <span>You need to be loggged in to add courses to your cart</span>
+      </p>
+    );
+  }
+
   if (isInCart(course.id))
     return (
-      <p className={BUTTON_STYLES}>
+      <p className="button w-full cursor-default rounded-lg">
         <BadgeCheck className="size-4" />
         <span>Course already in Cart</span>
       </p>
     );
 
   return (
-    <button onClick={handleAdd} className={`${BUTTON_STYLES} cursor-pointer`}>
+    <button onClick={handleAdd} className="button w-full rounded-lg">
       <ShoppingCart className="size-5" />
       <span className="font-medium">Add to Cart</span>
     </button>

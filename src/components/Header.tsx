@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
-import { LogInIcon } from 'lucide-react';
+import { LogInIcon, LogOut } from 'lucide-react';
 
+import { useAuth } from '../context/auth/hooks';
 import LogoIcon from '../assets/icons/Logo';
 import NavigationList, { CartNavLink } from './NavigationList';
 
@@ -22,14 +23,31 @@ export default function Header() {
           <div className="md:hidden">
             <CartNavLink isActive={false} />
           </div>
-          <Link to="/log-in" className="button text-sm">
-            <span>
-              <LogInIcon aria-hidden className="size-4" />
-            </span>
-            <span>Log In</span>
-          </Link>
+          <LoginLogoutButton />
         </div>
       </nav>
     </header>
+  );
+}
+
+function LoginLogoutButton() {
+  const { isLoggedIn, logout } = useAuth();
+
+  if (isLoggedIn) {
+    return (
+      <button onClick={logout} className="button bg-red-500 text-sm">
+        <LogOut className="size-4" />
+        <span>Logout</span>
+      </button>
+    );
+  }
+
+  return (
+    <Link to="/log-in" className="button text-sm">
+      <span>
+        <LogInIcon aria-hidden className="size-4" />
+      </span>
+      <span>Log In</span>
+    </Link>
   );
 }

@@ -1,15 +1,18 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, Trash2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, LogIn, Trash2 } from 'lucide-react';
 
-import { useCart } from '../context/cart/useCart';
+import { useAuth } from '../context/auth/hooks';
+import { useCart } from '../context/cart/hooks';
 import { formatPrice } from '../utils/format-price';
 import type { CartItem } from '../context/cart/types';
 import EmptyCartIcon from '../assets/icons/EmtyCart';
 
 export default function CartPage() {
+  const { isLoggedIn } = useAuth();
   const { items, totalItems, clearCart } = useCart();
 
-  if (items.length === 0) return <EmptyCart />;
+  if (items.length === 0 || !isLoggedIn)
+    return <EmptyCart isLoggedIn={isLoggedIn} />;
 
   return (
     <>
@@ -141,20 +144,25 @@ function CourseCard({ item }: { item: CartItem }) {
   );
 }
 
-function EmptyCart() {
+function EmptyCart({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const Icon = isLoggedIn ? ArrowRight : LogIn;
+
   return (
     <section className="section flex h-full flex-col items-center justify-center space-y-2 text-center">
       <EmptyCartIcon className="w-64" />
       <h1 className="text-3xl font-bold text-black">
-        Your cart is <span className="text-primary">Empty</span>
+        Your cart is{' '}
+        <span className="text-primary">{isLoggedIn ? 'Empty' : 'Waiting'}</span>
       </h1>
       <p className="text-text-muted max-w-lg text-sm">
-        It looks like you haven&apos;t enrolled in any new adventures yet. The
-        next step in your journey is waiting.
+        It looks like you
+        {isLoggedIn
+          ? " haven't enrolled in any new adventures yet. The next step in your journey is waiting."
+          : '’re not logged in yet. Log in to start adding courses and continue your learning journey.'}
       </p>
-      <Link to="/courses" className="button mt-4">
-        <span>Browse Courses</span>
-        <ArrowRight className="size-4" />
+      <Link to={isLoggedIn ? '/courses' : '/log-in'} className="button mt-4">
+        <span>{isLoggedIn ? 'Browse Courses' : 'Log In'}</span>
+        <Icon className="size-4" />
       </Link>
     </section>
   );

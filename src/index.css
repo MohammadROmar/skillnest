@@ -42,5 +42,5 @@
 }
 
 @utility button {
-  @apply bg-primary flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-white transition-transform duration-300 text-shadow-white hover:scale-98;
+  @apply bg-primary flex cursor-pointer items-center justify-center gap-2 rounded-2xl px-4 py-2 text-white transition-transform duration-300 text-shadow-white hover:scale-98;
 }

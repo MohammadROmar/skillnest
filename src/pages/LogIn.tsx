@@ -1,11 +1,18 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 import { Eye, EyeClosed, Lock, Mail } from 'lucide-react';
 
+import { useAuth } from '../context/auth/hooks';
 import LogoIcon from '../assets/icons/Logo';
 import studentsImg from '../assets/images/students-2.jpg';
 
 export default function LogInPage() {
+  const { isLoggedIn } = useAuth();
+
+  if (isLoggedIn) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <main className="group/login flex min-h-screen gap-6">
       <section className="flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
@@ -36,8 +43,19 @@ export default function LogInPage() {
 }
 
 function LoginForm() {
+  const navigate = useNavigate();
+
+  const { login } = useAuth();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    login();
+    navigate('/');
+  }
+
   return (
-    <form className="space-y-6">
+    <form onSubmit={handleSubmit} className="space-y-6">
       <div className="flex flex-col gap-1">
         <label htmlFor="email" className="text-sm">
           Email Address
@@ -61,9 +79,7 @@ function LoginForm() {
         <PasswordInput />
       </div>
 
-      <button className="bg-primary shadow-primary/25 flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-2 font-semibold text-white shadow transition-transform duration-300 hover:scale-98">
-        Log In
-      </button>
+      <button className="button w-full">Log In</button>
     </form>
   );
 }
@@ -72,6 +88,7 @@ function PasswordInput() {
   const [type, setType] = useState<'password' | 'text'>('password');
 
   const Icon = type === 'text' ? EyeClosed : Eye;
+  const label = type === 'text' ? 'Hide password' : 'Show password';
 
   return (
     <div className="relative">
@@ -88,6 +105,8 @@ function PasswordInput() {
 
       <button
         type="button"
+        aria-label={label}
+        title={label}
         onClick={() =>
           setType((prev) => (prev === 'text' ? 'password' : 'text'))
         }

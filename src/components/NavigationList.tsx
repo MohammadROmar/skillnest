@@ -1,7 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ShoppingCart } from 'lucide-react';
 
-import { useCart } from '../context/cart/useCart';
+import { useAuth } from '../context/auth/hooks';
+import { useCart } from '../context/cart/hooks';
 import { navigationList } from '../data/navigationList';
 
 function NavigationList() {
@@ -31,6 +32,7 @@ function NavigationList() {
 }
 
 export function CartNavLink({ isActive }: { isActive: boolean }) {
+  const { isLoggedIn } = useAuth();
   const { totalItems } = useCart();
 
   return (
@@ -40,7 +42,7 @@ export function CartNavLink({ isActive }: { isActive: boolean }) {
       title="Cart"
       className={`relative ${isActive ? 'text-primary fill-primary' : ''}`}
     >
-      {totalItems !== 0 && (
+      {isLoggedIn && totalItems !== 0 && (
         <div
           aria-label="Total items in cart"
           className="bg-primary absolute -top-[50%] -right-[50%] flex aspect-square size-full items-center justify-center rounded-full"

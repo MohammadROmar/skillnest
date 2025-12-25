@@ -1,3 +1,4 @@
+import { Toaster } from 'sonner';
 import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 import Header from '../components/Header';
@@ -18,7 +19,10 @@ export function Layout({ children }: PropsWithChildren) {
       <ScrollRestoration />
 
       <Header />
-      <main>{children}</main>
+      <main>
+        <Toaster position="top-center" className="font-lexend!" />
+        {children}
+      </main>
       <Footer />
     </>
   );

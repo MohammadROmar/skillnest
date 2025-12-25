@@ -1,10 +1,10 @@
+import { toast } from 'sonner';
 import { useEffect, useMemo, useReducer, type ReactNode } from 'react';
-
-import type { CartContextValue, CartItem, CartState } from './types';
 
 import { CartContext } from './context';
 import { cartReducer } from './reducer';
 import { loadCart, saveCart } from '../../utils/cartStorage';
+import type { CartContextValue, CartItem, CartState } from './types';
 
 const initialState: CartState = {
   items: [],
@@ -28,14 +28,23 @@ export function CartProvider({ children }: { children: ReactNode }) {
     }
 
     dispatch({ type: 'ADD_ITEM', payload: item });
+    toast.success('Course added to your cart successfully.', {
+      classNames: { icon: 'text-green-500' },
+    });
     return true;
   }
 
   function removeFromCart(courseId: number) {
+    toast.error('Course removed from cart.', {
+      classNames: { icon: 'text-red-500' },
+    });
     dispatch({ type: 'REMOVE_ITEM', payload: courseId });
   }
 
   function clearCart() {
+    toast.error('Your cart has been cleared.', {
+      classNames: { icon: 'text-red-500' },
+    });
     dispatch({ type: 'CLEAR_CART' });
   }
 

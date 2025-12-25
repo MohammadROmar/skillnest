@@ -9,7 +9,7 @@ export default function RootLayout() {
       <ScrollRestoration />
 
       <Header />
-      <main className="">
+      <main>
         <Outlet />
       </main>
       <Footer />

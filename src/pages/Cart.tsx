@@ -1,9 +1,10 @@
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowRight, ShoppingCart, Trash2 } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Trash2 } from 'lucide-react';
 
 import { useCart } from '../context/cart/useCart';
 import { formatPrice } from '../utils/format-price';
 import type { CartItem } from '../context/cart/types';
+import EmptyCartIcon from '../assets/icons/EmtyCart';
 
 export default function CartPage() {
   const { items, totalItems, clearCart } = useCart();
@@ -143,7 +144,7 @@ function CourseCard({ item }: { item: CartItem }) {
 function EmptyCart() {
   return (
     <section className="section flex h-full flex-col items-center justify-center space-y-2 text-center">
-      <ShoppingCart className="size-24" />
+      <EmptyCartIcon className="w-64" />
       <h1 className="text-3xl font-bold text-black">
         Your cart is <span className="text-primary">Empty</span>
       </h1>
@@ -151,10 +152,7 @@ function EmptyCart() {
         It looks like you haven&apos;t enrolled in any new adventures yet. The
         next step in your journey is waiting.
       </p>
-      <Link
-        to="/courses"
-        className="bg-primary mt-4 flex items-center justify-center gap-2 rounded-2xl px-4 py-2 text-white"
-      >
+      <Link to="/courses" className="button mt-4">
         <span>Browse Courses</span>
         <ArrowRight className="size-4" />
       </Link>

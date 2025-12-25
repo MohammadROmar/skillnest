@@ -10,7 +10,7 @@ import user3Img from '../assets/images/user-3.png';
 
 export default function Hero() {
   return (
-    <section className="bg-secondary bg-[url(worn-dots.png)] bg-size-[100px]">
+    <section className="bg-secondary bg-[url('/images/worn-dots.png')] bg-size-[100px]">
       <div className="section flex min-h-screen items-center justify-center gap-4 text-center lg:text-start">
         <div className="flex flex-1 flex-col items-center justify-around space-y-6 lg:block">
           <p className="text-primary border-primary/20 bg-primary/10 flex w-fit items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium">

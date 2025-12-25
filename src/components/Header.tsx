@@ -22,10 +22,7 @@ export default function Header() {
           <div className="md:hidden">
             <CartNavLink isActive={false} />
           </div>
-          <Link
-            to="/log-in"
-            className="bg-primary flex items-center gap-2 rounded-2xl px-4 py-2 text-sm text-white"
-          >
+          <Link to="/log-in" className="button text-sm">
             <span>
               <LogInIcon aria-hidden className="size-4" />
             </span>

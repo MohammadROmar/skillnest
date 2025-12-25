@@ -7,14 +7,8 @@ import studentsImg from '../assets/images/students-2.jpg';
 
 export default function LogInPage() {
   return (
-    <main className="flex min-h-screen gap-6">
-      <section className="bg-primary/20 relative flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
-        <img
-          src={studentsImg}
-          alt="Student image"
-          className="absolute inset-0 -z-50 size-full object-cover object-center opacity-30 blur-xs lg:hidden"
-        />
-
+    <main className="group/login flex min-h-screen gap-6">
+      <section className="flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
         <div className="w-full space-y-6 lg:max-w-sm">
           <div>
             <Link
@@ -111,10 +105,10 @@ function SidePanel() {
       <img
         src={studentsImg}
         alt="Student image"
-        className="size-full object-cover object-center"
+        className="size-full object-cover object-center transition-transform duration-700 group-focus-within/login:scale-110"
       />
 
-      <div className="absolute inset-x-0 bottom-0 z-20 space-y-8 p-8 text-white">
+      <div className="absolute inset-x-0 bottom-0 z-20 space-y-8 p-8 text-white transition-transform duration-700 group-focus-within/login:-translate-y-2.5">
         <p className="w-fit rounded-2xl border border-white/50 bg-white/20 px-2 py-0.5 text-xs uppercase backdrop-blur-xs">
           Daily inspiration
         </p>

@@ -10,7 +10,7 @@ import { courses, type Course } from '../data/courses';
 type CourseProps = { course: Course };
 
 function isValidCourse(id: number | undefined) {
-  return id !== undefined && (id >= 0 || id < courses.length);
+  return id !== undefined && id >= 0 && id < courses.length - 1;
 }
 
 const BUTTON_STYLES =

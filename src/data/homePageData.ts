@@ -16,10 +16,10 @@ import {
   Sun,
   TrendingUp,
   Zap,
-  BadgeCheck,
-  Laptop,
   GraduationCap,
   Users,
+  Award,
+  MousePointerClick,
 } from 'lucide-react';
 
 import learningEnvironmentImg from '../assets/images/interactive-learning-environment.jpg';
@@ -106,7 +106,7 @@ export const whyUs = [
     title: 'Interactive Learning Environment',
     description:
       'Forget passive video watching. Our platform includes in-browser codeing environment, interactive quizzes, and peer-revirewed projects that ensure you acctually master the skills',
-    icon: Laptop,
+    icon: MousePointerClick,
     bgSyles: 'bg-primary/10',
     textStyles: 'text-primary',
     link: 'Explore Courses',
@@ -117,7 +117,7 @@ export const whyUs = [
     image: certificationsImg,
     description:
       'Earn certificated that employers actually value. Our credentials are blockchain-verified and can br directly added to your LinkedIn profile with a single click.',
-    icon: BadgeCheck,
+    icon: Award,
     bgSyles: 'bg-purple-100',
     textStyles: 'text-purple-500',
     link: 'Get your Certificate now',

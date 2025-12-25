@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight, Check, Laptop, Quote } from 'lucide-react';
+import { ArrowRight, Check, Quote } from 'lucide-react';
 
 import Stars from '../components/Stars';
 import Hero from '../components/HeroSections';
@@ -111,7 +111,7 @@ function WhyUs() {
             </div>
             <div className="flex flex-1 flex-col justify-center gap-4">
               <div className={`${item.bgSyles} w-fit rounded-xl p-1`}>
-                <Laptop className={`size-8 p-1 ${item.textStyles}`} />
+                <item.icon className={`size-8 p-1 ${item.textStyles}`} />
               </div>
               <h3 className="text-2xl font-semibold tracking-tight">
                 {item.title}

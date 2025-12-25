@@ -1,5 +1,5 @@
 import { Link, useSearchParams } from 'react-router-dom';
-import { Eye, ShoppingCart } from 'lucide-react';
+import { ReceiptText } from 'lucide-react';
 
 import Pagination from '../components/Pagination';
 import { formatPrice } from '../utils/format-price';
@@ -94,13 +94,13 @@ function CourseCard({ course }: { course: Course }) {
             <p className="text-xl font-bold">{formatPrice(course.price)}</p>
 
             <div className="flex items-center gap-4">
-              <Link to={`/courses/${course.id}`}>
-                <Eye className="text-text-muted size-5" />
+              <Link
+                to={`/courses/${course.id}`}
+                className="bg-primary flex items-center gap-2 rounded-2xl border px-4 py-2 text-white"
+              >
+                <ReceiptText className="size-5" />
+                <span>View Details</span>
               </Link>
-              <button className="bg-primary flex items-center gap-2 rounded-2xl px-4 py-2 text-sm font-medium text-white">
-                <ShoppingCart className="size-5" />
-                <span>Add</span>
-              </button>
             </div>
           </div>
         </div>

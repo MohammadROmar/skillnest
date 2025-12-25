@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
-import { Check, ShieldCheck, ShoppingCart } from 'lucide-react';
+import { BadgeCheck, Check, ShieldCheck, ShoppingCart } from 'lucide-react';
 
+import { useCart } from '../context/cart/useCart';
 import NotFoundPage from './NotFound';
 import { formatPrice } from '../utils/format-price';
 import { getCourseDateInfo, getCourseInfo } from '../utils/getCourseInfo';
@@ -11,6 +12,9 @@ type CourseProps = { course: Course };
 function isValidCourse(id: number | undefined) {
   return id !== undefined && (id >= 0 || id < courses.length);
 }
+
+const BUTTON_STYLES =
+  'bg-primary flex w-full items-center justify-center gap-2 rounded-lg px-4 py-2 text-white';
 
 export default function CourseDetails() {
   const { id } = useParams();
@@ -143,10 +147,7 @@ function InfoCard({ course }: CourseProps) {
             ))}
           </div>
 
-          <button className="bg-primary flex w-full cursor-pointer items-center justify-center gap-2 rounded-lg px-4 py-2 text-white">
-            <ShoppingCart className="size-5" />
-            <span className="font-medium">Add to Cart</span>
-          </button>
+          <AddToCartBtn course={course} />
 
           <p className="flex items-center justify-center gap-2 text-center">
             <ShieldCheck className="size-4" />
@@ -157,5 +158,33 @@ function InfoCard({ course }: CourseProps) {
         </div>
       </div>
     </section>
+  );
+}
+
+function AddToCartBtn({ course }: { course: Course }) {
+  const { addToCart, isInCart } = useCart();
+
+  function handleAdd() {
+    addToCart({
+      courseId: course.id,
+      title: course.title,
+      price: course.price,
+      image: course.image,
+    });
+  }
+
+  if (isInCart(course.id))
+    return (
+      <p className={BUTTON_STYLES}>
+        <BadgeCheck className="size-4" />
+        <span>Course already in Cart</span>
+      </p>
+    );
+
+  return (
+    <button onClick={handleAdd} className={`${BUTTON_STYLES} cursor-pointer`}>
+      <ShoppingCart className="size-5" />
+      <span className="font-medium">Add to Cart</span>
+    </button>
   );
 }

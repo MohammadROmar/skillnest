@@ -13,12 +13,15 @@ export default function Hero() {
     <section className="bg-secondary bg-[url('/images/worn-dots.png')] bg-size-[100px]">
       <div className="section flex min-h-screen items-center justify-center gap-4 text-center lg:text-start">
         <div className="flex flex-1 flex-col items-center justify-around space-y-6 lg:block">
-          <p className="text-primary border-primary/20 bg-primary/10 flex w-fit items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium">
+          <p
+            className="text-primary animate-slide-up border-primary/20 bg-primary/10 flex w-fit items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium opacity-0"
+            style={{ animationDelay: '1s' }}
+          >
             <Sparkle className="size-3 text-yellow-500" />
             New: AI & Machine Learning Track
           </p>
 
-          <h1 className="text-6xl font-extrabold tracking-tight text-balance text-black capitalize">
+          <h1 className="animate-slide-up text-4xl font-extrabold tracking-tight text-balance text-black capitalize md:text-5xl lg:text-6xl">
             Learn skills that{' '}
             <span className="from-primary relative bg-linear-to-r to-purple-600 bg-clip-text text-transparent">
               shape your future
@@ -26,7 +29,10 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="text-text-muted text-balance">
+          <p
+            className="text-text-muted animate-slide-up text-sm text-balance opacity-0 md:text-base"
+            style={{ animationDelay: '0.25s' }}
+          >
             High-quality online courses designed for modern learners. Master new
             technologies, design, and buisness skills at your own pace with
             industry experts.
@@ -34,12 +40,16 @@ export default function Hero() {
 
           <Link
             to="/courses"
-            className="bg-primary shadow-primary/25 flex w-fit items-center gap-2 rounded-2xl px-4 py-3 text-lg font-semibold text-white shadow transition-transform duration-300 hover:scale-98"
+            className="bg-primary animate-slide-up shadow-primary/25 flex w-fit items-center gap-2 rounded-2xl px-4 py-3 text-lg font-semibold text-white opacity-0 shadow transition-transform duration-300 hover:scale-98"
+            style={{ animationDelay: '0.5s' }}
           >
             Explore Courses <ArrowRight className="size-5" />
           </Link>
 
-          <div className="flex flex-col items-center gap-2 lg:flex-row">
+          <div
+            className="animate-slide-up flex flex-col items-center gap-2 opacity-0 lg:flex-row"
+            style={{ animationDelay: '0.75s' }}
+          >
             <div className="flex -space-x-2 select-none">
               <img
                 src={user1Img}
@@ -65,7 +75,7 @@ export default function Hero() {
             </div>
           </div>
         </div>
-        <div className="before:bg-primary/25 relative hidden flex-1 overflow-hidden rounded-2xl shadow before:absolute before:inset-0 before:z-10 before:size-full lg:block">
+        <div className="before:bg-primary/25 animate-fade-in relative hidden flex-1 overflow-hidden rounded-2xl opacity-0 shadow before:absolute before:inset-0 before:z-10 before:size-full lg:block">
           <img
             src={studentsImg}
             alt="An image of students"

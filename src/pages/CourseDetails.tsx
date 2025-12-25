@@ -1,9 +1,8 @@
 import { useParams } from 'react-router-dom';
-import { BadgeCheck, Check, ShieldCheck, ShoppingCart } from 'lucide-react';
+import { Check, ShieldCheck } from 'lucide-react';
 
-import { useAuth } from '../context/auth/hooks';
-import { useCart } from '../context/cart/hooks';
 import NotFoundPage from './NotFound';
+import AddToCartBtn from '../components/AddToCartBtn';
 import { formatPrice } from '../utils/format-price';
 import { getCourseDateInfo, getCourseInfo } from '../utils/getCourseInfo';
 import { courses, type Course } from '../data/courses';
@@ -19,8 +18,6 @@ export default function CourseDetails() {
 
   const idAsNumber = id ? +id : undefined;
   const isValid = isValidCourse(idAsNumber);
-
-  console.log(isValid);
 
   if (!isValid) return NotFoundPage();
 
@@ -156,42 +153,5 @@ function InfoCard({ course }: CourseProps) {
         </div>
       </div>
     </section>
-  );
-}
-
-function AddToCartBtn({ course }: { course: Course }) {
-  const { isLoggedIn } = useAuth();
-  const { addToCart, isInCart } = useCart();
-
-  function handleAdd() {
-    addToCart({
-      courseId: course.id,
-      title: course.title,
-      price: course.price,
-      image: course.image,
-    });
-  }
-
-  if (!isLoggedIn) {
-    return (
-      <p className="button w-full cursor-default rounded-lg text-center text-sm">
-        <span>You need to be loggged in to add courses to your cart</span>
-      </p>
-    );
-  }
-
-  if (isInCart(course.id))
-    return (
-      <p className="button w-full cursor-default rounded-lg">
-        <BadgeCheck className="size-4" />
-        <span>Course already in Cart</span>
-      </p>
-    );
-
-  return (
-    <button onClick={handleAdd} className="button w-full rounded-lg">
-      <ShoppingCart className="size-5" />
-      <span className="font-medium">Add to Cart</span>
-    </button>
   );
 }

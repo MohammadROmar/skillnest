@@ -95,7 +95,7 @@ function WhyUs() {
         </p>
       </div>
 
-      <div className="mt-16 space-y-8 lg:space-y-16">
+      <div className="mt-8 space-y-8 lg:mt-16 lg:space-y-16">
         {whyUs.map((item) => (
           <div
             key={item.title}

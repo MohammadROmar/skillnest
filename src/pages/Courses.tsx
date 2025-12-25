@@ -4,6 +4,7 @@ import { ReceiptText } from 'lucide-react';
 import Pagination from '../components/Pagination';
 import { formatPrice } from '../utils/format-price';
 import { courses, type Course } from '../data/courses';
+import AddToCartBtn from '../components/AddToCartBtn';
 
 const TOTAL_ITEMS = courses.length;
 const PAGE_SIZE = 6;
@@ -90,17 +91,18 @@ function CourseCard({ course }: { course: Course }) {
         </div>
 
         <div className="flex items-end">
-          <div className="flex flex-1 items-center justify-between">
+          <div className="flex flex-1 flex-wrap items-center justify-between gap-4">
             <p className="text-xl font-bold">{formatPrice(course.price)}</p>
 
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2 lg:gap-4">
               <Link
                 to={`/courses/${course.id}`}
-                className="bg-primary flex items-center gap-2 rounded-2xl border px-4 py-2 text-white"
+                className="border-primary/25 flex items-center gap-2 rounded-lg border bg-white px-4 py-2"
               >
                 <ReceiptText className="size-5" />
-                <span>View Details</span>
+                <span>Details</span>
               </Link>
+              <AddToCartBtn short course={course} />
             </div>
           </div>
         </div>

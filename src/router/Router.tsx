@@ -2,6 +2,7 @@ import { lazy, Suspense, type ElementType } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
 import RootLayout from '../layouts/RootLayout';
+import ErrorPage from '../pages/Error';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const LogInPage = lazy(() => import('../pages/LogIn'));
@@ -21,6 +22,7 @@ function WithSuspense({ Component }: { Component: ElementType }) {
 const router = createBrowserRouter([
   {
     element: <RootLayout />,
+    errorElement: <WithSuspense Component={ErrorPage} />,
     children: [
       { index: true, element: <WithSuspense Component={HomePage} /> },
       {
@@ -35,7 +37,11 @@ const router = createBrowserRouter([
       { path: '*', element: <WithSuspense Component={NotFoundPage} /> },
     ],
   },
-  { path: '/log-in', element: <WithSuspense Component={LogInPage} /> },
+  {
+    path: '/log-in',
+    element: <WithSuspense Component={LogInPage} />,
+    errorElement: <WithSuspense Component={ErrorPage} />,
+  },
 ]);
 
 export default function Router() {

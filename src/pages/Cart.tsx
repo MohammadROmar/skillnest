@@ -5,7 +5,7 @@ import { useAuth } from '../context/auth/hooks';
 import { useCart } from '../context/cart/hooks';
 import { formatPrice } from '../utils/format-price';
 import type { CartItem } from '../context/cart/types';
-import EmptyCartIcon from '../assets/icons/EmtyCart';
+import EmptyCartIcon from '../assets/icons/EmptyCart';
 
 export default function CartPage() {
   const { isLoggedIn } = useAuth();

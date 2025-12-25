@@ -41,7 +41,7 @@ export default function Pagination({
         onClick={() => goToPage(Math.max(1, currentPage - 1))}
         disabled={currentPage === 1 || totalPages === 0}
         aria-disabled={currentPage === 1 || totalPages === 0}
-        className="bg-background disabled:text-text-muted hidden rounded-xl border border-gray-200 p-2 md:block"
+        className="bg-background disabled:text-text-muted hidden cursor-pointer rounded-xl border border-gray-200 p-2 disabled:cursor-not-allowed md:block"
       >
         <ArrowLeftIcon className="size-4" />
       </button>
@@ -73,7 +73,7 @@ export default function Pagination({
         onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
         disabled={currentPage === totalPages || totalPages === 0}
         aria-disabled={currentPage === totalPages || totalPages === 0}
-        className="bg-background disabled:text-text-muted hidden rounded-xl border border-gray-200 p-2 md:block"
+        className="bg-background disabled:text-text-muted hidden cursor-pointer rounded-xl border border-gray-200 p-2 disabled:cursor-not-allowed md:block"
       >
         <ArrowRightIcon className="size-4" />
       </button>

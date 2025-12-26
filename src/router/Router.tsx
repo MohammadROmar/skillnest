@@ -5,8 +5,8 @@ import { LoaderCircle } from 'lucide-react';
 import RootLayout from '../layouts/RootLayout';
 import ErrorPage from '../pages/Error';
 import LoginLayout from '../layouts/LoginLayout';
+import HomePage from '../pages/Home';
 
-const HomePage = lazy(() => import('../pages/Home'));
 const LogInPage = lazy(() => import('../pages/LogIn'));
 const CoursesPage = lazy(() => import('../pages/Courses'));
 const CourseDetailsPage = lazy(() => import('../pages/CourseDetails'));

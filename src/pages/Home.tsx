@@ -228,7 +228,7 @@ function StartLearning() {
   return (
     <section className="bg-secondary py-8">
       <div className="section">
-        <div className="bg-primary relative flex overflow-hidden rounded-2xl before:absolute before:inset-0 before:bg-[url('/images/carbon-fibre.png')] before:opacity-10">
+        <div className="bg-primary relative flex overflow-hidden rounded-2xl shadow before:absolute before:inset-0 before:bg-[url('/images/carbon-fibre.png')] before:opacity-10">
           <div className="relative flex w-full flex-wrap items-center justify-between gap-4 p-8 before:absolute before:-bottom-[10%] before:-left-3 before:size-20 before:rounded-full before:bg-white/15 after:absolute after:-top-[10%] after:-right-3 after:size-20 after:rounded-full after:bg-white/15">
             <div>
               <h2 className="text-3xl font-bold tracking-tight text-white">

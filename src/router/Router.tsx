@@ -4,6 +4,7 @@ import { LoaderCircle } from 'lucide-react';
 
 import RootLayout from '../layouts/RootLayout';
 import ErrorPage from '../pages/Error';
+import LoginLayout from '../layouts/LoginLayout';
 
 const HomePage = lazy(() => import('../pages/Home'));
 const LogInPage = lazy(() => import('../pages/LogIn'));
@@ -16,10 +17,10 @@ function WithSuspense({ Component }: { Component: ElementType }) {
   return (
     <Suspense
       fallback={
-        <main className="text-text-muted flex h-full flex-col items-center justify-center gap-2">
+        <section className="text-text-muted flex size-full flex-col items-center justify-center gap-2">
           <LoaderCircle className="size-10 animate-spin ease-initial" />
           <p className="animate-pulse text-lg font-semibold">Loading</p>
-        </main>
+        </section>
       }
     >
       <Component />
@@ -32,7 +33,7 @@ const router = createBrowserRouter([
     element: <RootLayout />,
     errorElement: <WithSuspense Component={ErrorPage} />,
     children: [
-      { index: true, element: <WithSuspense Component={HomePage} /> },
+      { index: true, element: <HomePage /> },
       {
         path: '/courses',
         element: <WithSuspense Component={CoursesPage} />,
@@ -47,8 +48,11 @@ const router = createBrowserRouter([
   },
   {
     path: '/log-in',
-    element: <WithSuspense Component={LogInPage} />,
+    element: <LoginLayout />,
     errorElement: <WithSuspense Component={ErrorPage} />,
+    children: [
+      { index: true, element: <WithSuspense Component={LogInPage} /> },
+    ],
   },
 ]);
 

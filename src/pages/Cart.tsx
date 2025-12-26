@@ -1,11 +1,11 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowLeft, ArrowRight, LogIn, Trash2 } from 'lucide-react';
 
 import { useAuth } from '../context/auth/hooks';
 import { useCart } from '../context/cart/hooks';
+import EmptyCartIcon from '../assets/icons/EmptyCart';
 import { formatPrice } from '../utils/format-price';
 import type { CartItem } from '../context/cart/types';
-import EmptyCartIcon from '../assets/icons/EmptyCart';
 
 export default function CartPage() {
   const { isLoggedIn } = useAuth();
@@ -147,6 +147,8 @@ function CourseCard({ item }: { item: CartItem }) {
 }
 
 function EmptyCart({ isLoggedIn }: { isLoggedIn: boolean }) {
+  const { pathname } = useLocation();
+
   const Icon = isLoggedIn ? ArrowRight : LogIn;
 
   return (
@@ -167,7 +169,11 @@ function EmptyCart({ isLoggedIn }: { isLoggedIn: boolean }) {
             ? " haven't enrolled in any new adventures yet. The next step in your journey is waiting."
             : '’re not logged in yet. Log in to start adding courses and continue your learning journey.'}
         </p>
-        <Link to={isLoggedIn ? '/courses' : '/log-in'} className="button mt-4">
+        <Link
+          to={isLoggedIn ? '/courses' : '/log-in'}
+          state={isLoggedIn ? undefined : { from: pathname }}
+          className="button mt-4"
+        >
           <span>{isLoggedIn ? 'Browse Courses' : 'Log In'}</span>
           <Icon className="size-4" />
         </Link>

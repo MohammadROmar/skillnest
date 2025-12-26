@@ -16,6 +16,8 @@ export default function CartPage() {
 
   return (
     <>
+      <title>Cart - SkillNest</title>
+
       <section className="section flex flex-wrap items-center justify-between gap-4">
         <div>
           <h1 className="text-4xl font-extrabold tracking-tight text-black">
@@ -58,7 +60,7 @@ function OrderSummary() {
   const { totalPrice } = useCart();
 
   return (
-    <section className="bg-background border-primary/20 h-fit space-y-4 rounded-2xl border p-4 lg:col-span-2">
+    <section className="bg-background border-primary/20 h-fit space-y-4 rounded-2xl border p-4 shadow lg:col-span-2">
       <h2 className="text-xl font-semibold">Order Summary</h2>
 
       <div className="space-y-2">
@@ -110,7 +112,7 @@ function CourseCard({ item }: { item: CartItem }) {
   const { removeFromCart } = useCart();
 
   return (
-    <li className="bg-background flex flex-col justify-between gap-4 overflow-hidden rounded-2xl border border-gray-200 lg:flex-row lg:items-center lg:p-4">
+    <li className="bg-background flex flex-col justify-between gap-4 overflow-hidden rounded-2xl border border-gray-200 shadow lg:flex-row lg:items-center lg:p-4">
       <div className="flex w-full flex-col gap-4 lg:flex-row lg:items-center">
         <img
           src={item.image}
@@ -148,22 +150,28 @@ function EmptyCart({ isLoggedIn }: { isLoggedIn: boolean }) {
   const Icon = isLoggedIn ? ArrowRight : LogIn;
 
   return (
-    <section className="section flex h-full flex-col items-center justify-center space-y-2 text-center">
-      <EmptyCartIcon className="w-64" />
-      <h1 className="text-3xl font-bold text-black">
-        Your cart is{' '}
-        <span className="text-primary">{isLoggedIn ? 'Empty' : 'Waiting'}</span>
-      </h1>
-      <p className="text-text-muted max-w-lg text-sm">
-        It looks like you
-        {isLoggedIn
-          ? " haven't enrolled in any new adventures yet. The next step in your journey is waiting."
-          : '’re not logged in yet. Log in to start adding courses and continue your learning journey.'}
-      </p>
-      <Link to={isLoggedIn ? '/courses' : '/log-in'} className="button mt-4">
-        <span>{isLoggedIn ? 'Browse Courses' : 'Log In'}</span>
-        <Icon className="size-4" />
-      </Link>
-    </section>
+    <>
+      <title>Cart - SkillNest</title>
+
+      <section className="section flex h-full flex-col items-center justify-center space-y-2 text-center">
+        <EmptyCartIcon className="w-64" />
+        <h1 className="text-3xl font-bold text-black">
+          Your cart is{' '}
+          <span className="text-primary">
+            {isLoggedIn ? 'Empty' : 'Waiting'}
+          </span>
+        </h1>
+        <p className="text-text-muted max-w-lg text-sm">
+          It looks like you
+          {isLoggedIn
+            ? " haven't enrolled in any new adventures yet. The next step in your journey is waiting."
+            : '’re not logged in yet. Log in to start adding courses and continue your learning journey.'}
+        </p>
+        <Link to={isLoggedIn ? '/courses' : '/log-in'} className="button mt-4">
+          <span>{isLoggedIn ? 'Browse Courses' : 'Log In'}</span>
+          <Icon className="size-4" />
+        </Link>
+      </section>
+    </>
   );
 }

@@ -25,8 +25,11 @@ export default function CourseDetails() {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-7">
-        <div className="lg:col-span-5">
+      <title>{`${course.title} Details - SkillNest`}</title>
+      <meta name="description" content={course.shortDescription} />
+
+      <div className="section grid grid-cols-1 gap-6 lg:grid-cols-7">
+        <div className="space-y-6 lg:col-span-5">
           <CourseHeader course={course} />
           <CourseInfo course={course} />
           <WhatYouWillLearn list={course.whatYouWillLearn} />
@@ -40,8 +43,8 @@ export default function CourseDetails() {
 
 function CourseHeader({ course }: CourseProps) {
   return (
-    <section className="section space-y-2">
-      <p className="border-primary/20 bg-background text-primary w-fit rounded-2xl border px-2 py-1 text-xs font-medium uppercase">
+    <section>
+      <p className="border-primary/20 bg-background text-primary w-fit rounded-2xl border px-2 py-1 text-xs font-medium uppercase shadow">
         {course.category}
       </p>
       <h1
@@ -53,7 +56,7 @@ function CourseHeader({ course }: CourseProps) {
       <p className="text-lg">
         By <span className="font-extrabold">{course.instructor}</span>
       </p>
-      <p className="text-text-muted text-sm font-light">
+      <p className="text-text-muted mt-2 text-sm font-light">
         {course.shortDescription}
       </p>
     </section>
@@ -65,7 +68,7 @@ function CourseInfo({ course }: CourseProps) {
 
   return (
     <>
-      <section className="section grid grid-cols-2 gap-6 md:grid-cols-3">
+      <section className="grid grid-cols-2 gap-4 md:grid-cols-3">
         {info.map((detail) => (
           <div key={detail.title} className="flex items-center gap-2">
             <div className={`rounded-xl p-2 ${detail.styles}`}>
@@ -81,7 +84,7 @@ function CourseInfo({ course }: CourseProps) {
           </div>
         ))}
       </section>
-      <section className="section">
+      <section>
         <div>
           <h2 className="text-xl font-semibold">About this course</h2>
           <p className="text-text-muted mt-2">{course.fullDescription}</p>
@@ -93,8 +96,8 @@ function CourseInfo({ course }: CourseProps) {
 
 function WhatYouWillLearn({ list }: { list: Course['whatYouWillLearn'] }) {
   return (
-    <section className="section">
-      <div className="bg-background border-primary/20 rounded-2xl border p-4">
+    <section>
+      <div className="bg-background border-primary/20 rounded-2xl border p-4 shadow">
         <h2 className="text-xl font-semibold">What You'll learn</h2>
         <ul className="mt-4 grid grid-cols-1 gap-x-4 gap-y-2 lg:grid-cols-2">
           {list.map((item) => (
@@ -115,8 +118,8 @@ function InfoCard({ course }: CourseProps) {
   const dateInfo = getCourseDateInfo(course);
 
   return (
-    <section className="section lg:col-span-2">
-      <div className="bg-background border-primary/20 overflow-hidden rounded-2xl border">
+    <section className="lg:col-span-2">
+      <div className="bg-background border-primary/20 overflow-hidden rounded-2xl border shadow">
         <img
           src={course.image}
           aria-labelledby={`course-${course.id}`}

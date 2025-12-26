@@ -4,14 +4,12 @@ import { ArrowRight, Sparkle } from 'lucide-react';
 import Stars from './Stars';
 import UnderlineIcon from '../assets/icons/Undeline';
 import studentsImg from '../assets/images/students.jpg';
-import user1Img from '../assets/images/user-1.png';
-import user2Img from '../assets/images/user-2.png';
-import user3Img from '../assets/images/user-3.png';
+import { users } from '../data/homePageData';
 
 export default function Hero() {
   return (
     <section className="bg-secondary bg-[url('/images/worn-dots.png')] bg-size-[100px]">
-      <div className="section flex min-h-screen items-center justify-center gap-4 text-center lg:text-start">
+      <div className="section flex min-h-dvh items-center justify-center gap-4 text-center lg:text-start">
         <div className="flex flex-1 flex-col items-center justify-around space-y-6 lg:block">
           <p
             className="text-primary animate-slide-up border-primary/20 bg-primary/10 flex w-fit items-center gap-1.5 rounded-full border px-4 py-2 text-sm font-medium opacity-0"
@@ -40,7 +38,7 @@ export default function Hero() {
 
           <Link
             to="/courses"
-            className="bg-primary animate-slide-up shadow-primary/25 flex w-fit items-center gap-2 rounded-2xl px-4 py-3 text-lg font-semibold text-white opacity-0 shadow transition-transform duration-300 hover:scale-98"
+            className="animate-slide-up shadow-primary/25 button w-fit py-3 text-lg font-semibold opacity-0"
             style={{ animationDelay: '0.5s' }}
           >
             Explore Courses <ArrowRight className="size-5" />
@@ -51,21 +49,14 @@ export default function Hero() {
             style={{ animationDelay: '0.75s' }}
           >
             <div className="flex -space-x-2 select-none">
-              <img
-                src={user1Img}
-                alt="User Image"
-                className="size-7 rounded-full border border-white object-cover object-center"
-              />
-              <img
-                src={user2Img}
-                alt="User Image"
-                className="size-7 rounded-full border border-white object-cover object-center"
-              />
-              <img
-                src={user3Img}
-                alt="User Image"
-                className="size-7 rounded-full border border-white object-cover object-center"
-              />
+              {users.map(({ id, image }) => (
+                <img
+                  key={id}
+                  src={image}
+                  alt="User Image"
+                  className="size-7 rounded-full border border-white object-cover object-center"
+                />
+              ))}
             </div>
             <div>
               <Stars size="size-3" />

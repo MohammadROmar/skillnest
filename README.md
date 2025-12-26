@@ -1,75 +1,135 @@
-# React + TypeScript + Vite
+# SkillNest
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+SkillNest is a modern educational web platform built as a **training project**.  
+It focuses on clean UI, smooth user experience, and clear architecture while simulating
+core features of an online learning platform.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Project Overview
 
-## React Compiler
+SkillNest allows users to browse courses, view detailed course pages, and manage a shopping cart.
+A simple **login simulation** is implemented to demonstrate authentication state handling
+without using a backend.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+This project follows **best practices in modern React development** and is intended
+for learning, training, and evaluation purposes.
 
-Note: This will impact Vite dev & build performances.
+---
 
-## Expanding the ESLint configuration
+## ✨ Features
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- Browse courses with pagination
+- View detailed course information
+- Add courses to cart
+- Remove courses from cart
+- Clear cart functionality
+- Login simulation (no backend)
+- Prevent adding courses to cart if the user is not logged in
+- Persistent cart and login state using `localStorage`
+- Responsive and modern UI
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🛠 Tech Stack
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Frontend
+
+- **React**
+- **React Router DOM (v6.23.1)**
+
+### Styling
+
+- **Tailwind CSS**
+
+### Other Resources
+
+- **Lucide React** (icons)
+- **Sonner** (toast notifications)
+
+### Tooling
+
+- **Vite**
+- **TypeScript**
+- **ESLint**
+- **Prettier**
+
+---
+
+## 🧭 Routing
+
+Routing is implemented using **React Router DOM v6** with:
+
+- Nested routes
+- Lazy loading
+
+This ensures a clean and scalable navigation structure.
+
+---
+
+## 🧠 State Management
+
+- **React Context** is used for global state
+- **useReducer** is used for cart & auth state management
+- Authentication state is simulated
+- Cart and login states are persisted using `localStorage`
+
+---
+
+## 🔐 Login Simulation
+
+- Simple login page with:
+  - Email
+  - Password
+- No backend or real authentication
+- Login state stored as `isLoggedIn`
+- Navbar switches between **Login** and **Logout**
+- Cart actions are blocked when the user is not logged in
+
+---
+
+## 🎨 Design Resources
+
+### Font
+
+- [Lexend - Google Fonts](https://fonts.google.com/specimen/Lexend)
+
+### Logo
+
+- [Freepik – Flat Design Library Logo Template](https://www.freepik.com/free-vector/flat-design-library-logo-template_24005402.htm)
+
+### Illustrations
+
+- [unDraw](https://undraw.co/)
+
+### Images
+
+- [Unsplash](https://unsplash.com/)
+
+---
+
+## ▶️ Scripts
+
+### Development
+
+```bash
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Build
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+```bash
+npm run build
+```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### Lint
+
+```bash
+npm run lint
+```
+
+### Preview
+
+```bash
+npm run preview
 ```

@@ -13,6 +13,8 @@ const TOTAL_PAGES = Math.ceil(TOTAL_ITEMS / PAGE_SIZE);
 export default function CoursesPage() {
   return (
     <>
+      <title>Courses - SkillNest</title>
+
       <section className="section">
         <h1 className="text-5xl font-extrabold tracking-tight text-black">
           Our Courses

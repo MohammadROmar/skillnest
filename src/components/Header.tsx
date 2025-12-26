@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { LogInIcon, LogOut } from 'lucide-react';
 
 import { useAuth } from '../context/auth/hooks';
@@ -32,6 +32,7 @@ export default function Header() {
 
 function LoginLogoutButton() {
   const { isLoggedIn, logout } = useAuth();
+  const { pathname } = useLocation();
 
   if (isLoggedIn) {
     return (
@@ -43,7 +44,7 @@ function LoginLogoutButton() {
   }
 
   return (
-    <Link to="/log-in" className="button text-sm">
+    <Link to="/log-in" state={{ from: pathname }} className="button text-sm">
       <span>
         <LogInIcon aria-hidden className="size-4" />
       </span>

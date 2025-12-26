@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import { Eye, EyeClosed, Lock, Mail } from 'lucide-react';
 
 import { useAuth } from '../context/auth/hooks';
@@ -14,36 +14,41 @@ export default function LogInPage() {
   }
 
   return (
-    <main className="group/login flex min-h-screen gap-6">
-      <section className="flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
-        <div className="w-full space-y-6 lg:max-w-sm">
-          <div>
-            <Link
-              to="/"
-              className="flex w-fit items-center gap-2 text-xl font-semibold text-black"
-            >
-              <LogoIcon className="size-8 shrink-0" />
-              <span>SkillNest</span>
-            </Link>
+    <>
+      <title>Log In - SkillNest</title>
 
-            <h1 className="mt-16 to-black text-4xl font-extrabold tracking-tight">
-              Welcome Back
-            </h1>
-            <p className="lg:text-text-muted mt-1 text-sm text-gray-600">
-              Enter your credentails to access your account.
-            </p>
+      <main className="group/login flex min-h-screen gap-6">
+        <section className="flex flex-1 flex-col items-center justify-center p-6 lg:bg-transparent">
+          <div className="w-full space-y-6 lg:max-w-sm">
+            <div>
+              <Link
+                to="/"
+                className="flex w-fit items-center gap-2 text-xl font-semibold text-black"
+              >
+                <LogoIcon className="size-8 shrink-0" />
+                <span>SkillNest</span>
+              </Link>
+
+              <h1 className="mt-16 to-black text-4xl font-extrabold tracking-tight">
+                Welcome Back
+              </h1>
+              <p className="lg:text-text-muted mt-1 text-sm text-gray-600">
+                Enter your credentails to access your account.
+              </p>
+            </div>
+            <LoginForm />
           </div>
-          <LoginForm />
-        </div>
-      </section>
+        </section>
 
-      <SidePanel />
-    </main>
+        <SidePanel />
+      </main>
+    </>
   );
 }
 
 function LoginForm() {
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const { login } = useAuth();
 
@@ -51,7 +56,9 @@ function LoginForm() {
     e.preventDefault();
 
     login();
-    navigate('/');
+
+    const from = state.from || '/';
+    navigate(from);
   }
 
   return (

@@ -132,6 +132,9 @@ export const overview = [
     description:
       'Access a curated library of structered learning paths designed by industry veterans. From bite-sized lessons to comperhensive certifications. We provide the tools you need to stay relevant.',
     features: ['Industry-recognized Certificates', '1-on-1 Mentroship'],
+    textColor: 'text-primary',
+    bgColor: 'bg-primary/10',
+    check: 'bg-primary',
   },
   {
     icon: Users,
@@ -139,6 +142,9 @@ export const overview = [
     description:
       ' Whether you&apos;re a student looking to break into tech, a preofessional aiming for a promotion, or a lifelong learner curious about the world, SkillNest adapts to your pace and goals.',
     features: ['Career Switchers', 'Upskilling Professionals'],
+    textColor: 'text-purple-500',
+    bgColor: 'bg-purple-100',
+    check: 'bg-purple-500',
   },
 ];
 
@@ -164,4 +170,10 @@ export const whatLearnersSay = [
     description:
       'The UI/UX course completely changed my career trajectory. The mentors were incredibly helpful and the projects were real-world relevant.',
   },
+];
+
+export const users = [
+  { id: 1, image: user1Img },
+  { id: 2, image: user2Img },
+  { id: 3, image: user3Img },
 ];

@@ -58,9 +58,9 @@
 }
 
 @utility input {
-  @apply focus:outline-primary w-full rounded-2xl border border-gray-200 bg-gray-100 px-4 py-2;
+  @apply focus:outline-primary shadow-primary/10 w-full rounded-2xl border border-gray-200 bg-gray-100 px-4 py-2 shadow-sm;
 }
 
 @utility button {
-  @apply bg-primary flex cursor-pointer items-center justify-center gap-2 rounded-2xl px-4 py-2 text-white transition-transform duration-300 text-shadow-white hover:scale-98;
+  @apply bg-primary shadow-primary/25 flex cursor-pointer items-center justify-center gap-2 rounded-2xl px-4 py-2 text-white shadow-sm transition-transform duration-300 text-shadow-white hover:scale-98;
 }

@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight, Check, Quote } from 'lucide-react';
 
 import Stars from '../components/Stars';
@@ -56,7 +56,9 @@ function Overview() {
             key={item.title}
             className="border-background space-y-4 rounded-2xl border bg-white p-4 shadow"
           >
-            <div className="bg-primary/10 text-primary w-fit rounded-xl p-2">
+            <div
+              className={`w-fit rounded-xl p-2 ${item.textColor} ${item.bgColor}`}
+            >
               <item.icon className="size-6" />
             </div>
             <div>
@@ -69,7 +71,9 @@ function Overview() {
               <div key={`${item.title}-${feature}`} className="space-y-1">
                 <div className="flex items-center gap-1">
                   <div className="flex">
-                    <Check className="size-4 rounded-full bg-green-500 p-0.5 text-white" />
+                    <Check
+                      className={`size-4 rounded-full p-0.5 text-white ${item.check}`}
+                    />
                   </div>
                   <p className="text-sm">{feature}</p>
                 </div>
@@ -102,7 +106,7 @@ function WhyUs() {
             className="mt-6 flex flex-col-reverse gap-4 lg:grid lg:grid-cols-2 lg:gap-8"
           >
             <div
-              className={`relative overflow-hidden rounded-2xl before:absolute before:inset-0 before:z-10 before:size-full ${item.styles}`}
+              className={`relative overflow-hidden rounded-2xl shadow before:absolute before:inset-0 before:z-10 before:size-full ${item.styles}`}
             >
               <img
                 src={item.image}
@@ -159,7 +163,9 @@ function TestemonialCard({
   return (
     <li className="relative grid grid-rows-[auto_auto_1fr] gap-4 rounded-2xl bg-white p-4 shadow">
       <Quote className="absolute top-4 right-4 size-5 text-black/25" />
-      <Stars size="size-4" />
+      <div className="w-fit">
+        <Stars size="size-4" />
+      </div>
       <p className="text-sm">"{testemonial.description}"</p>
 
       <div className="flex items-end">
@@ -187,7 +193,7 @@ function Categories() {
         TOP CATEGORIES
       </p>
       <h2 className="text-3xl font-bold tracking-tight">
-        Expolre Top Corrses by Category
+        Expolre Top Courses by Category
       </h2>
       <p className="text-text-muted text-sm">
         Browse our wide range of categories and start learning what matters to
@@ -198,7 +204,7 @@ function Categories() {
         {categories.map((category) => (
           <li
             key={category.label}
-            className="bg-primary/2 border-primary/10 rounded-2xl border p-4"
+            className="bg-primary/2 border-primary/10 rounded-2xl border p-4 shadow"
           >
             <div
               className={`w-fit rounded-xl p-2 ${category.bg} ${category.text}`}
@@ -217,6 +223,8 @@ function Categories() {
 }
 
 function StartLearning() {
+  const { pathname } = useLocation();
+
   return (
     <section className="bg-secondary py-8">
       <div className="section">
@@ -233,6 +241,7 @@ function StartLearning() {
             </div>
             <Link
               to="/log-in"
+              state={{ from: pathname }}
               className="text-primary relative z-10 size-fit rounded-2xl bg-white px-4 py-2 font-medium"
             >
               Get Started

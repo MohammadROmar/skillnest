@@ -30,9 +30,9 @@ function AddToCartBtn({ course, short = false }: Props) {
   if (isInCart(course.id)) {
     return (
       <p className="button w-full cursor-default rounded-lg">
-        <div className={short ? 'p-0.5' : undefined}>
+        <span className={short ? 'p-0.5' : undefined}>
           <BadgeCheck className="size-5" />
-        </div>
+        </span>
         <span className={`${short ? 'sr-only' : ''}`}>
           Course already in Cart
         </span>

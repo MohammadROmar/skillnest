@@ -1,5 +1,6 @@
 import { lazy, Suspense, type ElementType } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { LoaderCircle } from 'lucide-react';
 
 import RootLayout from '../layouts/RootLayout';
 import ErrorPage from '../pages/Error';
@@ -13,7 +14,14 @@ const NotFoundPage = lazy(() => import('../pages/NotFound'));
 
 function WithSuspense({ Component }: { Component: ElementType }) {
   return (
-    <Suspense>
+    <Suspense
+      fallback={
+        <main className="text-text-muted flex h-full flex-col items-center justify-center gap-2">
+          <LoaderCircle className="size-10 animate-spin ease-initial" />
+          <p className="animate-pulse text-lg font-semibold">Loading</p>
+        </main>
+      }
+    >
       <Component />
     </Suspense>
   );
